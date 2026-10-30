@@ -36,6 +36,9 @@ jobs:
         with:
           dotnet-version: '6.0.x'
 
+      - name: "Maven Compile"
+        run: mvn -B -DskipTests compile
+
       - name: Build and Test Maven
         shell: bash
         run: |
@@ -57,6 +60,9 @@ jobs:
       - name: Java Checkstyle
         run: |
           mvn -B checkstyle:check
+
+      - name: "PMD check"
+        run: mvn -B pmd:check
 
       - name: Dockerfile Lint
         uses: hadolint/hadolint-action@v3.1.0

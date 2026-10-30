@@ -29,5 +29,27 @@
       <consoleOutput>true</consoleOutput>
     </configuration>
   </plugin>
+  <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.28.0</version> <!-- Uses PMD 7.17.0 under the hood -->
+                <configuration>
+                    <!-- Fail the build if violations are found -->
+                    <failOnViolation>true</failOnViolation> 
+                    <printFailingErrors>true</printFailingErrors>
+                    <linkXRef>false</linkXRef>
+                    <inputEncoding>UTF-8</inputEncoding>
+                    <targetJdk>17</targetJdk>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                            <goal>cpd-check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
   </plugins></build>
 </project>
