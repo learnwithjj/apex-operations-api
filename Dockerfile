@@ -4,7 +4,8 @@ COPY pom.xml .
 RUN mvn -B -ntp dependency:go-offline
 COPY src ./src
 RUN mvn -B -ntp -DskipTests package
-# Runtime image
+
+RUN apt-get update && apt-get install -y curl
 FROM eclipse-temurin:21-jre
 RUN useradd --system --uid 10001 \
     --create-home appuser
