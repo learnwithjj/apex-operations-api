@@ -45,7 +45,7 @@ jobs:
         uses: gittools/actions/gitversion/execute@v3.1.11
         with:
           useConfigFile: true
-          configFilePath: ./.GitVersion/GitVersion.yml
+          configFilePath: ./GitVersion/GitVersion.yml
 
       - name: Display Version
         run: |
