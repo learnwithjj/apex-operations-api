@@ -15,7 +15,6 @@ COPY --from=build \
     /workspace/target/apex-operations-api-1.0.0.jar \
     /app/app.jar
 
-# Copy existing OpenTelemetry agent from repository
 COPY opentelemetry-javaagent.jar \
     /opt/otel/opentelemetry-javaagent.jar
 
