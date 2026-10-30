@@ -36,6 +36,9 @@ jobs:
         with:
           dotnet-version: '6.0.x'
 
+      - name: "Maven Compile"
+        run: mvn -B -DskipTests compile
+
       - name: Build and Test Maven
         shell: bash
         run: |
