@@ -58,6 +58,9 @@ jobs:
         run: |
           mvn -B checkstyle:check
 
+      - name: "PMD check"
+        run: mvn -B pmd:check
+
       - name: Dockerfile Lint
         uses: hadolint/hadolint-action@v3.1.0
         with:
