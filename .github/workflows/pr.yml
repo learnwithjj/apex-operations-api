@@ -1,0 +1,23 @@
+
+name: Apex Operations API - PR Validation
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+permissions:
+  contents: read
+
+jobs:
+  java-pr:
+    name: Java PR Pipeline
+    uses: ./.github/workflows/pr-java-reusable.yml
+    with:
+      component: apex-operations-api
+    secrets:
+      ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}

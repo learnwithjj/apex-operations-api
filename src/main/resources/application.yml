@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: apex-operations-api
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/apex}
+    username: ${DB_USER:apex}
+    password: ${DB_PASSWORD:apex_local_only}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+server:
+  port: 8080
+  shutdown: graceful
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: never
+  metrics:
+    tags:
+      application: apex-operations-api
