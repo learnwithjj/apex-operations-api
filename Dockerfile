@@ -20,7 +20,7 @@ COPY opentelemetry-javaagent.jar \
 
 ENV OTEL_SERVICE_NAME=apex-operations-api \
     OTEL_EXPORTER_OTLP_PROTOCOL=grpc \
-    OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317 \
+    OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317 \
     OTEL_TRACES_EXPORTER=otlp \
     OTEL_METRICS_EXPORTER=none \
     OTEL_LOGS_EXPORTER=none

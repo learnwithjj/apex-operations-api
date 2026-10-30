@@ -50,18 +50,18 @@ services:
     image: grafana/tempo:latest
     command: ["-config.file=/etc/tempo.yaml"]
     volumes:
-      - ./tempo.yaml:/etc/tempo.yaml
+      - ./monitoring/tempo.yaml:/etc/tempo.yaml
     ports:
-      - "3200:3200"         # Tempo HTTP API
+      - "3200:3200"         
     restart: always
 
   otel-collector:
     image: otel/opentelemetry-collector-contrib:latest
     command: ["--config=/etc/otel-collector-config.yaml"]
     volumes:
-      - ./otel.yaml:/etc/otel-collector-config.yaml
+      - ./monitoring/otel.yaml:/etc/otel-collector-config.yaml
     ports:
-      - "4317:4317"  # OTLP gRPC input
+      - "4317:4317" 
     depends_on:
       - tempo
 
@@ -79,3 +79,4 @@ services:
 volumes:
   pgdata:
   grafanadata:
+  lokidata:
